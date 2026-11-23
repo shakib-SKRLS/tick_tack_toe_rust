@@ -23,7 +23,11 @@ fn get_player_move(current_player: char, board: &Board)->(usize, usize) {
     loop{
         println!("Player {}, enter your move (row and column): ", current_player);
         let mut input = String::new();
-        io::stdin().read_line(&mut input).expect("failed to read input");
+        let bytes_read = io::stdin().read_line(&mut input).expect("failed to read input");
+        if bytes_read == 0 {
+            println!("Input closed. Exiting.");
+            std::process::exit(0);
+        }
         println!("You entered: {}", input);
 
         let coordinates: Vec<usize> = input
