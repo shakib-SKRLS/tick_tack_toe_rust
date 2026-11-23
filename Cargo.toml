@@ -1,5 +1,5 @@
 [package]
-name = "hello_program"
+name = "tick_tack_toe_rust"
 version = "0.1.0"
 edition = "2024"
 
